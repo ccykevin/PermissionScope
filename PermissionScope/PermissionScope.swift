@@ -305,8 +305,8 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         assert(configuredPermissions.first { $0.type == permission.type }.isNil, "Permission for \(permission.type) already set")
         
         configuredPermissions.append(permission)
-        permissionMessages[permission.type] = message
-        
+      permissionMessages[permission.type] = message.localized;
+      
         if permission.type == .bluetooth && askedBluetooth {
             triggerBluetoothStatusUpdate()
         } else if permission.type == .motion && askedMotion {
